@@ -6,11 +6,11 @@ using System.ComponentModel;
 
 namespace Recover.Controllers
 {
-    public class FileExtract : ControllerBase
+    public class ExtractFiles : ControllerBase
     {
         [HttpGet]
         [Route("/api/v1/GetFile")]
-        public async Task<dynamic> GetFiles(string pathO, string exten, string pathF, int count = 0, bool convert = false)
+        public dynamic GetFiles(string pathO, string exten, string pathF, int count = 0, bool convert = false)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace Recover.Controllers
 
         [HttpDelete]
         [Route("/api/v1/DeleteFile")]
-        public async Task<dynamic> DeleteFiles(string pathO)
+        public dynamic DeleteFiles(string pathO)
         {
             DirectoryInfo dirInfo = new DirectoryInfo(pathO);
             FileInfo[] archivos = dirInfo.GetFiles();
@@ -92,7 +92,7 @@ namespace Recover.Controllers
 
         [HttpPost]
         [Route("/api/v1/Convert")]
-        public async Task<dynamic> ConvertThumb(List<string> lista, string pathF)
+        public dynamic ConvertThumb(List<string> lista, string pathF)
         {
             try
             {
